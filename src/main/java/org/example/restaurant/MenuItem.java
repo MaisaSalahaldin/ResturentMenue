@@ -50,12 +50,34 @@ public class MenuItem {
                 ", date=" + date
               ;
     }
-public boolean isNew(MenuItem item){
-
-
-    // if(item.getDate()>20)
-        return true;
-}
+public static boolean isNew(MenuItem item){
+Date todayDate=new Date();
+//    SimpleDateFormat formatDate1 = new SimpleDateFormat(
+//            "YYY");
+//    if(formatDate1.format(item.getDate()).equals(formatDate1.format(todayDate))){
+        SimpleDateFormat formatDate = new SimpleDateFormat(
+                "MM");
+        // does not new if more then 90 days ==3 months
+        if(Math.subtractExact(Integer.parseInt(formatDate.format(todayDate)),Integer.parseInt(formatDate.format(item.getDate())))>3)
+            return false;
+        else
+            return true;
+    }
+    //if not same year
+//    else{
+//        if(Math.subtractExact(Integer.parseInt(formatDate1.format(todayDate)),Integer.parseInt(formatDate1.format(item.getDate())))>1)
+//        return false;
+//        else{
+//            SimpleDateFormat format = new SimpleDateFormat(
+//                    "MM");
+//            if(Math.subtractExact(Integer.parseInt(format.format(todayDate)),Integer.parseInt(format.format(item.getDate())))>3)
+//                return false;
+//            else
+//                return true;
+//
+//        }
+//    }
+//    }
 
     public String getName() {
         return name;
